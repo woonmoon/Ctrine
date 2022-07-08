@@ -14,7 +14,8 @@ grammar;
 // 	| declaration_specifiers init_declarator_list ';'
 // 	;
 pub Declaration: Box<Decl> = {
-    <specs:DeclarationSpecifiers> ";" => Box::new(Decl::Decl(specs)),
+    <dspecs:DeclarationSpecifiers> ";" => Box::new(Decl::Decl(*dspecs)),
+    <dspecs:DeclarationSpecifiers> <idecllist: InitDeclaratorList> ";" => Box::new(Decl::DeclList(*dspecs, idecllist)),
 };
 
 // declaration_specifiers

@@ -1,34 +1,37 @@
 // use std::fmt::{Debug, Error, Formatter};
 
 // more to come
+#[derive(Debug)]
 pub enum TypeSpec {
     Int,
     Error, 
 }
 
+#[derive(Debug)]
 pub enum DeclSpecs {
     Type(TypeSpec),
     Error,
 }
 
+#[derive(Debug)]
 pub enum DirDeclarator {
     Id(String),
     Error,
 }
 
+#[derive(Debug)]
 pub enum Declarator {
     ValDecl(DirDeclarator),
     PointerDecl(DirDeclarator),
     Error,
 }
 
+#[derive(Debug)]
 pub enum InitDecl {
     Decl(Declarator),
     // DeclAss(Declarator, "=", )
     Error,
 }
-
-pub type InitDeclList = Vec<InitDecl>;
 
 // pub struct Declaration {
 //     strspec: Option<StorageSpec>,
@@ -37,8 +40,9 @@ pub type InitDeclList = Vec<InitDecl>;
 //     val: Option<Any>,
 // }
 
+#[derive(Debug)]
 pub enum Decl {
-    Decl(Box<DeclSpecs>),
-    DeclList(Box<DeclSpecs>, Box<InitDeclList>),
+    Decl(DeclSpecs),
+    DeclList(DeclSpecs, Vec<Box<InitDecl>>),
     Error,
 }
