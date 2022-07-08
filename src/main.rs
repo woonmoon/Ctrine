@@ -3,7 +3,6 @@ extern crate lalrpop_util;
 
 use std::env;
 use std::fs;
-// use parser::DeclarationParser;
 
 lalrpop_mod!(pub parser);
 pub mod ast;

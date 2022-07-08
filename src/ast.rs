@@ -17,7 +17,8 @@ pub enum DirDeclarator {
 }
 
 pub enum Declarator {
-    ValDecl(DirDeclarator), // not a pointer
+    ValDecl(DirDeclarator),
+    PointerDecl(DirDeclarator),
     Error,
 }
 
@@ -27,10 +28,7 @@ pub enum InitDecl {
     Error,
 }
 
-pub enum InitDeclList {
-    InitDeclL(InitDecl),
-    Error,
-}
+pub type InitDeclList = Vec<InitDecl>;
 
 // pub struct Declaration {
 //     strspec: Option<StorageSpec>,
