@@ -12,6 +12,8 @@ fn main() {
     // &args[0] is "target/debug/chocolat"
     let filename = &args[1];
     let program = fs::read_to_string(filename).expect("Something went wrong reading the file");
-    let decl = parser::DeclarationParser::new().parse(&program).unwrap();
-    println!("Got program \n {}", program);
+    println!("prog {:?}", program);
+    let ast = parser::DeclarationParser::new().parse(&program).unwrap();
+    // println!("Got program \n {}", program);
+    println!("ast {:?}", ast);
 }
